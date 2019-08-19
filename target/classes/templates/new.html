@@ -5,25 +5,97 @@
 		content="text/html;charset=UTF-8" />
 	<title>registration page</title>
 	<style>
-		h1{font-size:18pt,font-weight:bold;color:gray;}
-		body{font-size:13pt;color:gray;margin:5px 25px;}
-		pre{border solid 3px #ddd;padding:10px}
-		tr{margin:5px;}
-		th{padding:5px;color:white;background:darkgray;}
-		td{padding:5px;color:black;background:#f0f0f0;}
+		h1 {
+			font-size: 24pt;
+			font-weight: bold;
+			color: white;
+			text-align: center;
+			background: black;
+			margin: 0;
+		}
+		h2 {
+			font-size: 20pt;
+			margin: 24px;
+			text-align: center;
+		}
+		form {
+			margin: 24px;
+			text-align: center;
+		}
+		.content {
+			width: 700px;
+			margin: 0 auto;
+			background: #eee;
+			overflow: hidden;
+		}
+		.form-group {
+			margin: 0 auto 12px;
+		}
+		label {
+			float: left;
+			margin: 12px 0 0 24px;
+		}
+		textarea {
+			padding: 8px;
+			width: calc(100% - 48px);
+			box-sizing: border-box;
+			font-size: 14pt;
+			outline: 0;
+			border-style: none;
+			min-height: 300px;
+		}
+		select {
+			cursor: pointer;
+			padding: 8px;
+			width: calc(100% - 48px);
+			box-sizing: border-box;
+			font-size: 14pt;
+			outline: 0;
+			border-style: none;
+		}
+		.submit {
+			cursor: pointer;
+			padding: 8px;
+			width: calc(100% - 48px);
+			box-sizing: border-box;
+			font-size: 14pt;
+			outline: 0;
+			border-style: none;
+			margin: 24px 0;
+			background: darkgray;
+			color: white;
+			font-weight: bold;
+		}
 	</style>
 </head>
 
 <body>
-	<h1>カードの追加</h1>
-	<form method="post" action="/new" th:object="${formModel}">
-	<table>
-			<tr><td><label for="text">内容</label></td>
-				<td><input type="text" name="text" th:value="*{text}"/></td></tr>
-			<tr><td><label for="age">状態</label></td>
-				<td><input type="text" name="status_id" th:value="*{status_id}"/></td></tr>
-			<tr><td></td><td><input type="submit"/></td></tr>
-	</table>
+	<header>
+		<h1>Todo list</h1>
+	</header>
+	<h2>カードの追加</h2>
+	<form method="post" action="/new">
+		<div class="content">
+			<div class="form-group">
+				<label for="text">タイトル</label>
+				<input type="text" name="text" value="" class="card-title">
+			</div>
+			<div class="form-group">
+				<label for="text">内容</label>
+				<textarea name="text" value=""></textarea>
+			</div>
+			<div class="form-group">
+			<label for="status_id">状態</label>
+				<select>
+					<option value="1">Sprint To Do</option>
+					<option value="2">Doing</option>
+					<option value="3">Completed</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<input type="submit" class="submit">
+			</div>
+		</div> 
 	</form>
 	<hr/>
 	<table>
