@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type"
+		content="text/html;charset=UTF-8" />
+	<title>registration page</title>
+	<style>
+		h1{font-size:18pt,font-weight:bold;color:gray;}
+		body{font-size:13pt;color:gray;margin:5px 25px;}
+		pre{border solid 3px #ddd;padding:10px}
+		tr{margin:5px;}
+		th{padding:5px;color:white;background:darkgray;}
+		td{padding:5px;color:black;background:#f0f0f0;}
+	</style>
+</head>
+
+<body>
+	<h1>カードの追加</h1>
+	<form method="post" action="/new" th:object="${formModel}">
+	<table>
+			<tr><td><label for="text">内容</label></td>
+				<td><input type="text" name="text" th:value="*{text}"/></td></tr>
+			<tr><td><label for="age">状態</label></td>
+				<td><input type="text" name="status_id" th:value="*{status_id}"/></td></tr>
+			<tr><td></td><td><input type="submit"/></td></tr>
+	</table>
+	</form>
+	<hr/>
+	<table>
+		<tr><th>ID</th><th>名前</th></tr>
+		<tr th:each="obj : ${datalist}">
+			<td th:text="${obj.id}"></td>
+			<td th:text="${obj.text}"></td>
+		</tr>
+	</table>
+</body>
+</html>
