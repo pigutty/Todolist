@@ -6,32 +6,48 @@
 	<title>top page</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
 <style>
-	h1{font-size:24pt; font-weight:bold; color:white;text-align:center;background:black;margin:0;}
-	body{font-size:14pt; margin:0;}
 	.wrapper{margin: 24px;display:flex;}
-	ul{width: 33%;margin:12px;padding:0;box-sizing:border-box;border:1px solid #eee;}
-	.title{padding:12px;text-align:center;font-weight:bold;color:white;background:black;}
-	.content{padding:12px;background:#eee;}
-	li{list-style:none;padding:8px 12px;background:white;margin-bottom:12px;justify-content:space-between;display:flex;}
-	a{text-decoration:none;display:block;cursor:pointer;}
+	ul{width: 33%;margin:12px;padding:0;box-sizing:border-box;}
+	.title{border-top-left-radius:8px;border-top-right-radius:8px;padding:12px;text-align:center;font-weight:bold;color:white;background:black;}
+	.content{border-bottom-right-radius:8px;border-bottom-left-radius:8px;padding:12px;background:#eee;}
+	li{border-radius:8px;list-style:none;padding:8px 12px;background:white;margin-bottom:12px;justify-content:space-between;display:flex;}
+	.icon-list{display: flex;}
+	.fas.fa-edit,.fas.fa-trash-alt{cursor:pointer;color: rgb(102, 102, 102);margin:3px 3px 0;}
+	a{color:blue;text-decoration:none;display:block;cursor:pointer;}
 </style>
+<style th:include="header :: header_style"></style>
+
 </head>
 <body>
-	<header>
-		<h1>Todo list</h1>
-	</header>
+	<header th:include="header :: header_html"></header>
+	<!-- <header>
+		<form class='header'>
+				<h1>Today's Todo list</h1>
+				<div class="search-box">
+					<input class='search-box-input'>
+					<i class='fa fa-search'></i>
+				</div>
+		</form>
+	</header> -->
 	<div class="wrapper">
 		<ul>
 			<div class="title">Sprint To Do</div>
 			<div class="content">
 				<li>
 					<span>Sprint To Do</span>
-					<i class="fas fa-chevron-down"></i>
+					<div class="icon-list">
+						<a>
+							<i class="fas fa-edit"></i>
+						</a>
+						<a>
+							<i class="fas fa-trash-alt"></i>
+						</a>
+					</div>
 				</li>
 				<li>Sprint To Do</li>
 				<li>Sprint To Do</li>
 				<li>Sprint To Do</li>
-				<a>＋　カードを追加する</a>
+				<a th:href="@{'/new/'}">＋　カードを追加する</a>
 			</div>
 		</ul>
 		<ul>
@@ -41,7 +57,7 @@
 				<li>Sprint To Do</li>
 				<li>Sprint To Do</li>
 				<li>Sprint To Do</li>
-				<a>＋　カードを追加する</a>
+				<a th:href="@{'/new/'}">＋　カードを追加する</a>
 			</div>
 		</ul>
 		<ul>
@@ -51,7 +67,7 @@
 				<li>Sprint To Do</li>
 				<li>Sprint To Do</li>
 				<li>Sprint To Do</li>
-				<a>＋　カードを追加する</a>
+				<a th:href="@{'/new/'}">＋　カードを追加する</a>
 			</div>
 		</ul>
 	</div>

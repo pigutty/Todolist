@@ -4,26 +4,128 @@
 	<meta http-equiv="Content-Type"
 		content="text/html;charset=UTF-8" />
 	<title>registration page</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
+
 	<style>
-		h1{font-size:18pt;font-weight:bold;color:gray;}
-		body{font-size:13pt;color:gray;margin:5px 25px;}
-		pre{border: solid 3px #ddd;padding:10px;}
-		tr{margin:5px;}
-		th{padding:5px;color:white;background:darkgray;}
-		td{padding:5px;color:black;background:#f0f0f0;}
+		body{
+			margin: 0px;
+		}
+		h1 {
+			font-size: 24pt;
+			font-weight: bold;
+			color: white;
+			text-align: center;
+			background: black;
+			margin: 0;
+		}
+		h2 {
+			font-size: 20pt;
+			margin: 24px;
+			text-align: center;
+		}
+		form {
+			margin: 24px;
+			text-align: center;
+		}
+		.content {
+			width: 700px;
+			margin: 0 auto;
+			background: #eee;
+			overflow: hidden;
+		}
+		.form-group {
+			margin: 0 auto 12px;
+		}
+		label {
+			float: left;
+			margin: 12px 0 0 24px;
+		}
+		.card-title {
+			font-size: 24pt;
+			padding: 8px;
+			width: calc(100% - 48px);
+			box-sizing: border-box;
+			outline: 0;
+			border-style: none;
+		}
+		textarea {
+			padding: 8px;
+			width: calc(100% - 48px);
+			box-sizing: border-box;
+			font-size: 14pt;
+			outline: 0;
+			border-style: none;
+			min-height: 300px;
+		}
+		select {
+			cursor: pointer;
+			padding: 8px;
+			width: calc(100% - 48px);
+			box-sizing: border-box;
+			font-size: 14pt;
+			outline: 0;
+			border-style: none;
+		}
+		.submit {
+			cursor: pointer;
+			padding: 8px;
+			width: calc(100% - 48px);
+			box-sizing: border-box;
+			font-size: 14pt;
+			outline: 0;
+			border-style: none;
+			margin: 24px 0;
+			background: darkgray;
+			color: white;
+			font-weight: bold;
+		}
+		.delete {
+			cursor: pointer;
+			padding: 8px;
+			width: calc(100% - 48px);
+			box-sizing: border-box;
+			font-size: 14pt;
+			outline: 0;
+			border-style: none;
+			margin: 0 0 24px;
+			background: darkgray;
+			color: white;
+			font-weight: bold;
+		}
 	</style>
+	<style th:include="header :: header_style"></style>
+
 </head>
 
 <body>
-	<h1>カードの追加</h1>
-	<form method="post" action= "/edit" th:object="${formModel}">
-	<table>
-			<tr><td><label for="text">内容</label></td>
-				<td><input type="text" name="text" th:value="*{text}"/></td></tr>
-			<tr><td><label for="age">状態</label></td>
-				<td><input type="text" name="status_id" th:value="*{status_id}"/></td></tr>
-			<tr><td></td><td><input type="submit"/></td></tr>
-	</table>
+	<header th:include="header :: header_html"></header>
+
+	<h2>カードの編集</h2>
+	<form method="post" action="/edit">
+		<div class="content">
+			<div class="form-group">
+				<label for="text">タイトル</label>
+				<input type="text" name="text" value="" class="card-title">
+			</div>
+			<div class="form-group">
+				<label for="text">内容</label>
+				<textarea name="text" value=""></textarea>
+			</div>
+			<div class="form-group">
+			<label for="status_id">進行状態</label>
+				<select>
+					<option value="1">Sprint To Do</option>
+					<option value="2">Doing</option>
+					<option value="3">Completed</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<input type="submit" class="submit" value="編集完了！">
+			</div>
+			<div class="form-group">
+				<input type="submit" class="delete" value="削除する">
+			</div>
+		</div> 
 	</form>
 	<hr/>
 	<table>
