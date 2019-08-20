@@ -6,12 +6,12 @@
 	<title>top page</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
 <style>
-	body{font-size:14pt; margin:0;}
+	/* body{font-size:14pt; margin:0;}
 	.header{display: flex;background: black;position: relative;text-align: center;}
 	h1{font-size:24pt; font-weight:bold; color:white;margin:0;width: 100%;}
 	.search-box{display: flex;position: absolute;right: 36px;top:8px;}
 	.search-box-input{width:240px;font-size:14px;border-radius: 4px;height: 32px;padding: 3px 42px 3px 10px;box-sizing: border-box;border: 1px solid #ccc;outline: 0;}
-	i.fa.fa-search{cursor:pointer;line-height:32px;font-size: 14px;position: absolute;right: 0;width: 32px;height: 32px;background: rgb(102, 102, 102);color: rgb(255,255,255);border-top-right-radius: 4px;border-bottom-right-radius: 4px;}
+	i.fa.fa-search{cursor:pointer;line-height:32px;font-size: 14px;position: absolute;right: 0;width: 32px;height: 32px;background: rgb(102, 102, 102);color: rgb(255,255,255);border-top-right-radius: 4px;border-bottom-right-radius: 4px;} */
 	.wrapper{margin: 24px;display:flex;}
 	ul{width: 33%;margin:12px;padding:0;box-sizing:border-box;}
 	.title{border-top-left-radius:8px;border-top-right-radius:8px;padding:12px;text-align:center;font-weight:bold;color:white;background:black;}
@@ -21,9 +21,12 @@
 	.fas.fa-edit,.fas.fa-trash-alt{cursor:pointer;color: rgb(102, 102, 102);margin:3px 3px 0;}
 	a{color:blue;text-decoration:none;display:block;cursor:pointer;}
 </style>
+<style th:include="header :: header_style"></style>
+
 </head>
 <body>
-	<header>
+	<header th:include="header :: header_html"></header>
+	<!-- <header>
 		<form class='header'>
 				<h1>Today's Todo list</h1>
 				<div class="search-box">
@@ -31,7 +34,7 @@
 					<i class='fa fa-search'></i>
 				</div>
 		</form>
-	</header>
+	</header> -->
 	<div class="wrapper">
 		<ul>
 			<div class="title">Sprint To Do</div>

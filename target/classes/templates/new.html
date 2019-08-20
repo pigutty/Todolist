@@ -4,6 +4,8 @@
 	<meta http-equiv="Content-Type"
 		content="text/html;charset=UTF-8" />
 	<title>registration page</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
+
 	<style>
 		body{
 			margin: 0px;
@@ -78,12 +80,15 @@
 			font-weight: bold;
 		}
 	</style>
+	<style th:include="header :: header_style"></style>
+
 </head>
 
 <body>
-	<header>
+	<header th:include="header :: header_html"></header>
+	<!-- <header>
 		<h1>Todo list</h1>
-	</header>
+	</header> -->
 	<h2>カードの追加</h2>
 	<form method="post" action="/new">
 		<div class="content">
