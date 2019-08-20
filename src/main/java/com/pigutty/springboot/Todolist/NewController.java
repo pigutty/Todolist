@@ -57,5 +57,13 @@ public class NewController {
 		repository.saveAndFlush(tododata);
 		return new ModelAndView("redirect:/new");
 	}
+	
+	@RequestMapping(value="/delete",method=RequestMethod.POST)
+	@Transactional(readOnly=false)
+	public ModelAndView remove(@RequestParam long id,
+			ModelAndView mav){
+		repository.deleteById(id);
+		return new ModelAndView("redirect:/");
+	}
 }
 
