@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.Optional;
@@ -32,7 +33,8 @@ public class NewController {
 	@Transactional(readOnly=false)
 	public ModelAndView form(
 		@ModelAttribute("formModel")TodoData tododata,BindingResult result,
-		ModelAndView mav) {
+		@RequestParam(value="status_id",required=false)int status_id,ModelAndView mav) {
+		tododata.status_id=status_id;
 		repository.saveAndFlush(tododata);
 		return new ModelAndView("redirect:/new");
 	}
@@ -49,8 +51,9 @@ public class NewController {
 	@RequestMapping(value="/edit",method=RequestMethod.POST)
 	@Transactional(readOnly=false)
 	public ModelAndView update(
-		@ModelAttribute TodoData tododata,BindingResult result
-		,ModelAndView mav) {
+		@ModelAttribute TodoData tododata,BindingResult result,
+		@RequestParam(value="status_id",required=false)int status_id,ModelAndView mav) {
+		tododata.status_id=status_id;
 		repository.saveAndFlush(tododata);
 		return new ModelAndView("redirect:/new");
 	}

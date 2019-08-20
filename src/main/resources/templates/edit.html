@@ -101,20 +101,20 @@
 	<header th:include="header :: header_html"></header>
 
 	<h2>カードの編集</h2>
-	<form method="post" action="/edit"　th:object="${formModel}">
+	<form method="post" action="/edit"th:object="${formModel}">
 		<input type="hidden" name="id" th:value="*{id}"/>
 		<div class="content">
 			<div class="form-group">
-				<label for="title">タイトル</label>
-				<input type="title" name="text" th:value="*{title}" class="card-title">
+				<label for="name">タイトル</label>
+				<input type="text" name="name" th:value="*{name}" class="card-title">
 			</div>
 			<div class="form-group">
 				<label for="text">内容</label>
-				<textarea name="text" value="*{text}"></textarea>
+				<textarea name="text" th:text="*{text}"></textarea>
 			</div>
 			<div class="form-group">
 			<label for="status_id">進行状態</label>
-				<select>
+				<select name=status_id th:value="*{status_id}">
 					<option value="1">Sprint To Do</option>
 					<option value="2">Doing</option>
 					<option value="3">Completed</option>

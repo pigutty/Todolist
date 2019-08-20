@@ -16,7 +16,7 @@ public class TodoData {
 	private long id;
 	
 	@Column(nullable = true)
-	public String title;
+	public String name;
 	
 	@Column(nullable = true)
 	public String text;
@@ -32,12 +32,12 @@ public class TodoData {
 		this.id=id;
 	}
 	
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 	
-	public void setTitle(String title) {
-		this.title=title;
+	public void setName(String name) {
+		this.name=name;
 	}
 	
 	public String getText() {

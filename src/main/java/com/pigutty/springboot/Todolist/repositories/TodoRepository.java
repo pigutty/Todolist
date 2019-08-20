@@ -8,5 +8,5 @@ import com.pigutty.springboot.Todolist.TodoData;
 @Repository
 public interface TodoRepository extends JpaRepository<TodoData, Long>{
 	
-	public Optional<TodoData> findById(Long name);
+	public Optional<TodoData> findById(Long id);
 }
