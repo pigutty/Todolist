@@ -16,6 +16,9 @@ public class TodoData {
 	private long id;
 	
 	@Column(nullable = true)
+	public String title;
+	
+	@Column(nullable = true)
 	public String text;
 	
 	@Column(nullable = true)
@@ -27,6 +30,14 @@ public class TodoData {
 	
 	public void setId(long id) {
 		this.id=id;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setTitle(String title) {
+		this.title=title;
 	}
 	
 	public String getText() {
