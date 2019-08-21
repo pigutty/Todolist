@@ -28,3 +28,4 @@
      - Spring Data JPA
      - Spring Boot DevTools
      - MySQL Driver
+4. https://dev.mysql.com/downloads/connector/j/から(mysql-connector-java-8.0.17.tar.gz)をダウンロード。
