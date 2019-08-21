@@ -7,10 +7,10 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
 <style>
 	.wrapper{margin: 24px;display:flex;}
-	ul{width: 33%;margin:12px;padding:0;box-sizing:border-box;}
+	.list_box{height:100%;width: 33%;margin:12px;padding:0;box-sizing:border-box;border-bottom-right-radius:8px;border-bottom-left-radius:8px;background:#eee;}
 	.title{border-top-left-radius:8px;border-top-right-radius:8px;padding:12px;text-align:center;font-weight:bold;color:white;background:black;}
-	.content{border-bottom-right-radius:8px;border-bottom-left-radius:8px;padding:12px;background:#eee;}
-	a{color:blue;text-decoration:none;display:block;cursor:pointer;}
+	ul.content{margin:0;padding:12px 12px 0 12px;}
+	a.adding{color:blue;text-decoration:none;display:block;cursor:pointer;padding: 0 12px 12px 12px;}
 </style>
 <style th:include="header :: header_style"></style>
 <style th:include="list :: list_style"></style>
@@ -19,37 +19,27 @@
 <body>
 	<header th:include="header :: header_html"></header>
 	<div class="wrapper">
-		<ul>
+		<div class="list_box">
 			<div class="title">Sprint To Do</div>
-			<div class="content">
-				<li th:include="list :: list_html" th:each="object : ${sprint}">
-<!-- 					<span th:text="${object.name}"></span>
-					<div class="icon-list">
-						<a>
-							<i class="fas fa-edit"></i>
-						</a>
-						<a>
-							<i class="fas fa-trash-alt"></i>
-						</a>
-					</div> -->
-				</li>
-				<a th:href="@{'/new/'}">＋　カードを追加する</a>
-			</div>
-		</ul>
-		<ul>
+			<ul class="content">
+				<li th:include="list :: list_html" th:each="object : ${sprint}"></li>
+			</ul>
+			<a class="adding" th:href="@{'/new/'}">＋　カードを追加する</a>
+		</div>
+		<div class="list_box">
 			<div class="title">Doing Now</div>
-			<div class="content">
+			<ul class="content">
 				<li th:include="list :: list_html" th:each="object : ${doing}"></li>
-				<a th:href="@{'/new/'}">＋　カードを追加する</a>
-			</div>
-		</ul>
-		<ul>
+			</ul>
+			<a class="adding" th:href="@{'/new/'}">＋　カードを追加する</a>
+		</div>
+		<div class="list_box">
 			<div class="title">Completed</div>
-			<div class="content">
+			<ul class="content">
 				<li th:include="list :: list_html" th:each="object : ${completed}"></li>
-				<a th:href="@{'/new/'}">＋　カードを追加する</a>
-			</div>
-		</ul>
+			</ul>
+			<a class="adding" th:href="@{'/new/'}">＋　カードを追加する</a>
+		</div>
 	</div>
 </body>
 </html>
