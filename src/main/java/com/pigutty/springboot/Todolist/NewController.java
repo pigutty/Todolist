@@ -73,6 +73,16 @@ public class NewController {
 		return new ModelAndView("redirect:/new");
 	}
 	
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+	public ModelAndView delete(@ModelAttribute TodoData tododata,BindingResult result,
+			@PathVariable int id, ModelAndView mav) {
+		mav.setViewName("delete");
+		mav.addObject("title", "delete TodoData");
+		Optional<TodoData> data = repository.findById((long)id);
+		mav.addObject("formModel", data.get());
+		return mav;
+	}
+
 	@RequestMapping(value="/delete",method=RequestMethod.POST)
 	@Transactional(readOnly=false)
 	public ModelAndView remove(@RequestParam long id,

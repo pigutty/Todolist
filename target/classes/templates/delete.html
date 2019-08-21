@@ -101,7 +101,7 @@
 	<header th:include="header :: header_html"></header>
 
 	<h2>カードの編集</h2>
-	<form method="post" action="/edit"th:object="${formModel}">
+	<form method="post" action="/delete"th:object="${formModel}">
 		<input type="hidden" name="id" th:value="*{id}"/>
 		<div class="content">
 			<div class="form-group">
@@ -121,7 +121,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<input type="submit" class="submit" value="編集完了！">
+				<input type="submit" class="delete" value="削除する">
 			</div>
 		</div> 
 	</form>
