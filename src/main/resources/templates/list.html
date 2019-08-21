@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type"
+		content="text/html;charset=UTF-8" />
+	<title>header page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
+
+<style th:fragment="list_style">
+	li{border-radius:8px;list-style:none;padding:8px 12px;background:white;margin-bottom:12px;justify-content:space-between;display:flex;}
+	.icon-list{display: flex;}
+	.fas.fa-edit,.fas.fa-trash-alt{cursor:pointer;color: rgb(102, 102, 102);margin:3px 3px 0;}
+</style>
+
+</head>
+
+<body>
+	<li th:fragment="list_html">
+		<span th:text="${object.name}"></span>
+		<div class="icon-list">
+			<a>
+				<i class="fas fa-edit"></i>
+			</a>
+			<a>
+				<i class="fas fa-trash-alt"></i>
+			</a>
+		</div>
+	</li>
+</body>
