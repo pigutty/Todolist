@@ -128,7 +128,6 @@ public class NewController {
 		d6.setText("パスを設定して一つのアプリとして動くようにする。");
 		d6.setstatusid((int)1);
 		repository.saveAndFlush(d6);
-		
 	}
 }
 
