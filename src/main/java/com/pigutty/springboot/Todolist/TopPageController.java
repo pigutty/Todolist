@@ -18,9 +18,9 @@
 //	@RequestMapping(value="/",method=RequestMethod.GET)
 //	public ModelAndView index(@ModelAttribute TodoData tododata, ModelAndView mav){
 //		mav.setViewName("index");
-//		Optional<TodoData> sprint = repository.findByStatusId((int)1);
-//		Optional<TodoData> doing = repository.findByStatusId((int)2);
-//		Optional<TodoData> completed = repository.findByStatusId((int)3);
+//		Optional<TodoData> sprint = repository.findBystatusidId((int)1);
+//		Optional<TodoData> doing = repository.findBystatusidId((int)2);
+//		Optional<TodoData> completed = repository.findBystatusidId((int)3);
 //		mav.addObject("sprint",sprint.get());
 //		mav.addObject("sprint",doing.get());
 //		mav.addObject("sprint",completed.get());

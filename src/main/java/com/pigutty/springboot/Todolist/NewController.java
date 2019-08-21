@@ -25,9 +25,9 @@ public class NewController {
 	@RequestMapping(value="/",method=RequestMethod.GET)
 	public ModelAndView index(@ModelAttribute TodoData tododata, ModelAndView mav){
 		mav.setViewName("index");
-		List<TodoData> sprint = repository.findByStatus(1);
-		List<TodoData> doing = repository.findByStatus(2);
-		List<TodoData> completed = repository.findByStatus(3);
+		List<TodoData> sprint = repository.findByStatusid(1);
+		List<TodoData> doing = repository.findByStatusid(2);
+		List<TodoData> completed = repository.findByStatusid(3);
 		mav.addObject("sprint",sprint);
 		mav.addObject("doing",doing);
 		mav.addObject("completed",completed);
@@ -48,8 +48,8 @@ public class NewController {
 	@Transactional(readOnly=false)
 	public ModelAndView form(
 		@ModelAttribute("formModel")TodoData tododata,BindingResult result,
-		@RequestParam(value="status_id",required=false)int status,ModelAndView mav) {
-		tododata.status=status;
+		@RequestParam(value="statusid",required=false)int statusid,ModelAndView mav) {
+		tododata.statusid=statusid;
 		repository.saveAndFlush(tododata);
 		return new ModelAndView("redirect:/new");
 	}
@@ -67,8 +67,8 @@ public class NewController {
 	@Transactional(readOnly=false)
 	public ModelAndView update(
 		@ModelAttribute TodoData tododata,BindingResult result,
-		@RequestParam(value="status_id",required=false)int status,ModelAndView mav) {
-		tododata.status=status;
+		@RequestParam(value="statusid",required=false)int statusid,ModelAndView mav) {
+		tododata.statusid=statusid;
 		repository.saveAndFlush(tododata);
 		return new ModelAndView("redirect:/new");
 	}
@@ -86,37 +86,37 @@ public class NewController {
 		TodoData d1 = new TodoData();
 		d1.setName("言語の理解");
 		d1.setText("まずはJavaの構文を理解する。");
-		d1.setStatus((int)3);
+		d1.setstatusid((int)3);
 		repository.saveAndFlush(d1);
 		
 		TodoData d2 = new TodoData();
 		d2.setName("フレームワークの理解");
 		d2.setText("Spring Bootの基本的な使い方について学習する。");
-		d2.setStatus((int)3);
+		d2.setstatusid((int)3);
 		repository.saveAndFlush(d2);
 		
 		TodoData d3 = new TodoData();
 		d3.setName("アプリ設計");
 		d3.setText("作成するアプリのデータベースを設計する。");
-		d3.setStatus((int)3);
+		d3.setstatusid((int)3);
 		repository.saveAndFlush(d3);
 		
 		TodoData d4 = new TodoData();
 		d4.setName("ビュー作成");
 		d4.setText("アプリで使用するビューを作成する。");
-		d4.setStatus((int)2);
+		d4.setstatusid((int)2);
 		repository.saveAndFlush(d4);
 		
 		TodoData d5 = new TodoData();
 		d5.setName("コントローラ作成");
 		d5.setText("ビューで表示するのに必要なコントローラを作成する。");
-		d5.setStatus((int)1);
+		d5.setstatusid((int)1);
 		repository.saveAndFlush(d5);
 		
 		TodoData d6 = new TodoData();
 		d6.setName("パスの整備");
 		d6.setText("パスを設定して一つのアプリとして動くようにする。");
-		d6.setStatus((int)1);
+		d6.setstatusid((int)1);
 		repository.saveAndFlush(d6);
 		
 	}

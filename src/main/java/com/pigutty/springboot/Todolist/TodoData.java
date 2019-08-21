@@ -22,7 +22,7 @@ public class TodoData {
 	public String text;
 	
 	@Column(nullable = true)
-	public Integer status;
+	public Integer statusid;
 	
 	public long getId() {
 		return id;
@@ -48,12 +48,12 @@ public class TodoData {
 		this.text=text;
 	}
 	
-	public Integer getStatus() {
-		return status;
+	public Integer getstatusid() {
+		return statusid;
 	}
 	
-	public void setStatus(Integer status) {
-		this.status=status;
+	public void setstatusid(Integer statusid) {
+		this.statusid=statusid;
 	}
 	
 }

@@ -10,5 +10,5 @@ import com.pigutty.springboot.Todolist.TodoData;
 public interface TodoRepository extends JpaRepository<TodoData, Long>{
 	
 	public Optional<TodoData> findById(Long id);
-	public List<TodoData> findByStatus(Integer status);
+	public List<TodoData> findByStatusid(Integer statusid);
 }

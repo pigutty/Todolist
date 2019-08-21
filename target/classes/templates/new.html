@@ -101,8 +101,8 @@
 				<textarea name="text"></textarea>
 			</div>
 			<div class="form-group">
-			<label for="status_id">進行状態</label>
-				<select name="status_id">
+			<label for="statusid">進行状態</label>
+				<select name="statusid">
 					<option value="1">Sprint To Do</option>
 					<option value="2">Doing</option>
 					<option value="3">Completed</option>
@@ -120,7 +120,7 @@
 			<td th:text="${obj.id}"></td>
 			<td th:text="${obj.name}"></td>
 			<td th:text="${obj.text}"></td>
-			<td th:text="${obj.status_id}"></td>
+			<td th:text="${obj.statusid}"></td>
 		</tr>
 	</table>
 </body>
