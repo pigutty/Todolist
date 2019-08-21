@@ -51,7 +51,7 @@ public class NewController {
 		@RequestParam(value="statusid",required=false)int statusid,ModelAndView mav) {
 		tododata.statusid=statusid;
 		repository.saveAndFlush(tododata);
-		return new ModelAndView("redirect:/new");
+		return new ModelAndView("redirect:/");
 	}
 	
 	@RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
@@ -70,7 +70,7 @@ public class NewController {
 		@RequestParam(value="statusid",required=false)int statusid,ModelAndView mav) {
 		tododata.statusid=statusid;
 		repository.saveAndFlush(tododata);
-		return new ModelAndView("redirect:/new");
+		return new ModelAndView("redirect:/");
 	}
 	
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
