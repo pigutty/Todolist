@@ -18,10 +18,10 @@
 	<li th:fragment="list_html">
 		<span th:text="${object.name}"></span>
 		<div class="icon-list">
-			<a>
+			<a th:href="@{'/edit/'+${object.id}}"}>
 				<i class="fas fa-edit"></i>
 			</a>
-			<a>
+			<a th:href="@{'/delete/'+${object.id}}">
 				<i class="fas fa-trash-alt"></i>
 			</a>
 		</div>
